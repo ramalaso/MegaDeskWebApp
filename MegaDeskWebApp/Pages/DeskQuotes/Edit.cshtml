@@ -5,12 +5,10 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>DeskQuote</h4>
+<h4 class="my-2">Edit Desk Quote</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="DeskQuote.ID" />
@@ -55,7 +53,7 @@
                 <span asp-validation-for="DeskQuote.TotalQuote" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-info w-100" />
             </div>
         </form>
     </div>
