@@ -12,8 +12,7 @@ namespace MegaDeskWebApp
             {"3", new List<int>(){60,70,80 } },
             {"5", new List<int>(){40,50,60 } },
             {"7", new List<int>(){30,35,40 } },
-            {"14", new List<int>(){0,0, 0 } },
-            {"0", new List<int>(){60,70,80 } },
+            {"14", new List<int>(){0,0,0 } },
         };
 
         public static int getRushPrice(string days, int size)
