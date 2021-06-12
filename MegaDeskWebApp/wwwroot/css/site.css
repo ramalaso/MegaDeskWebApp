@@ -33,7 +33,6 @@ a {
 html {
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
-    background-color: blue;
 }
 
 @media (min-width: 768px) {
