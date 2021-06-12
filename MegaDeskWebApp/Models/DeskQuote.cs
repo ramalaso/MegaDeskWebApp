@@ -9,6 +9,7 @@ namespace MegaDeskWebApp.Models
 {
     public class DeskQuote
     {
+        private decimal calculatedTotalQuote;
         public int ID { get; set; }
 
         [Display(Name = "Customer Name")]
@@ -34,12 +35,12 @@ namespace MegaDeskWebApp.Models
         [Required]
         public int Drawers { get; set; }
 
-        [StringLength(60, MinimumLength = 5)]
+        //[StringLength(60, MinimumLength = 5)]
         [Required]
         public string Material { get; set; }
 
         [Display(Name = "Rush Days")]
-        [Range(0, 7)]
+        [Range(0, 14)]
         [Required]
         public int rushDays { get; set; }
 
@@ -47,6 +48,42 @@ namespace MegaDeskWebApp.Models
         [DataType(DataType.Currency)]
         [Column(TypeName = "decimal(18, 2)")]
         [Required]
-        public decimal TotalQuote { get; set; }
+        public decimal TotalQuote {
+            get { return CalculatedTotalQuote(); }
+            set { calculatedTotalQuote = CalculatedTotalQuote(); } 
+        }
+
+        private decimal CalculatedTotalQuote()
+        {
+            try
+            {
+                int totalQuote = CalculateDeskQuote.calculateQuote(this.Width, this.Depth, this.Drawers, GetSurface(), this.rushDays.ToString());
+                return Convert.ToDecimal(totalQuote);
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public CalculateDeskQuote.Surface GetSurface()
+        {
+            switch (Material)
+            {
+                case "Laminate":
+                    return CalculateDeskQuote.Surface.laminate;
+                case "Oak":
+                    return CalculateDeskQuote.Surface.oak;
+                case "Pine":
+                    return CalculateDeskQuote.Surface.pine;
+                case "Rosewood":
+                    return CalculateDeskQuote.Surface.rosewood;
+                case "Venner":
+                    return CalculateDeskQuote.Surface.veneer;
+                default:
+                    return CalculateDeskQuote.Surface.None;
+            }
+        }
     }
 }

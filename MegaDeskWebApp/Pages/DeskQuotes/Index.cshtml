@@ -7,9 +7,14 @@
 
 <h1 class="my-5">List of Desk Quotes</h1>
 
-<p>
-    <a class="btn btn-primary w-25" asp-page="Create">Create New</a>
-</p>
+<form class="w-100">
+    <p>
+        Customer: <input type="text text-md-left" class="w-25" asp-for="SearchCustomer" />
+        <input class="btn btn-info rounded-pill" type="submit" value="Filter" />
+        <a class="btn btn-primary w-25 pull-right"  style="float: right; " asp-page="Create">Create New</a>
+    </p>
+</form>
+
 <table class="table table-bordered">
     <thead class="table table-dark">
         <tr>

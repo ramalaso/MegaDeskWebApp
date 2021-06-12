@@ -39,17 +39,26 @@
             </div>
             <div class="form-group">
                 <label asp-for="DeskQuote.Material" class="control-label"></label>
-                <input asp-for="DeskQuote.Material" class="form-control" />
-                <span asp-validation-for="DeskQuote.Material" class="text-danger"></span>
+                <select asp-for="DeskQuote.Material" class="form-control">
+                    <option value="Laminate">Laminate</option>
+                    <option value="Oak">Oak</option>
+                    <option value="Rosewood">Rosewood</option>
+                    <option value="Venner">Veneer</option>
+                    <option value="Pine">Pine</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="DeskQuote.rushDays" class="control-label"></label>
-                <input asp-for="DeskQuote.rushDays" class="form-control" />
+                <select asp-for="DeskQuote.rushDays" class="form-control">
+                    <option value="3">3</option>
+                    <option value="5">5</option>
+                    <option value="7">7</option>
+                    <option value="14">14</option>
+                </select>
                 <span asp-validation-for="DeskQuote.rushDays" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DeskQuote.TotalQuote" class="control-label"></label>
-                <input asp-for="DeskQuote.TotalQuote" class="form-control" />
+                <input type="hidden" value="0" asp-for="DeskQuote.TotalQuote" class="form-control" />
                 <span asp-validation-for="DeskQuote.TotalQuote" class="text-danger"></span>
             </div>
             <div class="form-group">
